@@ -35,6 +35,13 @@ Paramétrage d'export:
 2. Pointer vers le fichier
 3. Ne pas cocher accélération mériel, les RTX 20xx ne supportent pas les codec avec Alpha (cf [# NVIDIA Video Codec SDK](https://developer.nvidia.com/nvidia-video-codec-sdk) et la section pour le décodage vidéos et formats supportés)
 
+# Export en Webm
+```bash
+ffmpeg -i .\in.mov -c:v libvpx-vp9 -crf 23 -b:v 0 .\out.webm
+```
+
 # Lien utiles
 
 [Export Transparency (Alpha Channel) in DaVinci Resolve!](https://www.youtube.com/watch?v=abPpcczGliE)
+
+[# Quick Tips #2 - Exporting Animated .webm from DaVinci Resolve and FFMpeg](https://www.youtube.com/watch?v=4Gv7a_fTSio&t=286s)
