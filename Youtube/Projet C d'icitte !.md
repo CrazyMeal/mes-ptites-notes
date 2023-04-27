@@ -61,7 +61,9 @@ Un peu flou par où commencer Jetpack compose,
 - ça peut paraitre insurmontable
 - beaucoup de concepts
 - peu de code / peu de pratique
-
+- la gestion de dépendances est affreuses
+	- start de projet: tu es déjà sur de vieilles librairies
+	- quand tu veux upgrade, tout devient incompatible
 
 Arrangement des Row et Column
 
