@@ -45,3 +45,13 @@ Là où le lien se fait avec le pattern-matching sur switch, c'est sur le fait q
 Permet d'avoir des types qui décrivent plus précisément des collections dont l'ordre importe, comme dans une séquence.
 On se retrouve avec `SequenceSet`, `SequenceCollection`, `SequencedMap`. On peut voir comment ça s'inscrit dans les collections en terme de hiérarchie:
 ![[o6fsrrha.bmp]]
+
+## Virtual threads
+Va permettre de faire des threads *legers* de manières simples. Beaucoup font le rapprochement avec les coroutines de Kotlin.
+Le détail est disponible dans la [JEP-444](https://openjdk.org/jeps/444)
+
+En points mis en avant:
+- possibilité de faire des variables locales au thread (surtout là pour les librairies / codes existants)
+- pouvoir les utiliser en *thread-per-request style*
+
+Pour un focus plus prononcé, aller sur **// notes à venir \\\\**
