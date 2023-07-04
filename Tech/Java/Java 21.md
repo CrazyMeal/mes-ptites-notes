@@ -54,4 +54,4 @@ En points mis en avant:
 - possibilité de faire des variables locales au thread (surtout là pour les librairies / codes existants)
 - pouvoir les utiliser en *thread-per-request style*
 
-Pour un focus plus prononcé, aller sur **// notes à venir \\\\**
+Pour un focus plus prononcé, aller sur [[Virtual threads]]
