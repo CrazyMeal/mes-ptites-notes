@@ -133,3 +133,5 @@ Utiliser des *virtual threads* peut alors être vu comme une alternative qui per
 - mention des virtual thread [26:17](https://www.youtube.com/watch?t=1577&v=_o7NIaOVjNM&feature=youtu.be)
 - mention coexistence *virtual threads* et Spring Webflux [29:17](https://www.youtube.com/watch?t=1757&v=_o7NIaOVjNM&feature=youtu.be)
 - mention bénéfices pour Spring [32:17](https://www.youtube.com/watch?v=_o7NIaOVjNM&t=1937s)
+> The only way to find out, is to take your Spring application, and try with virtual threads
+
