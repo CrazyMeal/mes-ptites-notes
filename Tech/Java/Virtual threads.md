@@ -129,4 +129,7 @@ Utiliser des *virtual threads* peut alors être vu comme une alternative qui per
 [Comparing Virtual Threads and Reactive Webflux in Spring](http://kth.diva-portal.org/smash/get/diva2:1763111/FULLTEXT01.pdf)  // accessible par [portail université](https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A1763111&dswid=3920) // récupéré en backup [[Comparing Virtual Threads and Reactive Webflux in Spring.pdf]] 
 
 [Article couvrant Spring I/O 2023](https://vived.io/virtual-threads-crac-graalvm-spring-boot-3-1-what-came-with-spring-i-o-2023-jvm-weekly-vol-137/)
-
+[Talk Spring I/O: "Spring framework 6.1: Infrastructure Revisited"](https://www.youtube.com/watch?v=_o7NIaOVjNM) 
+- mention des virtual thread [26:17](https://www.youtube.com/watch?t=1577&v=_o7NIaOVjNM&feature=youtu.be)
+- mention coexistence *virtual threads* et Spring Webflux [29:17](https://www.youtube.com/watch?t=1757&v=_o7NIaOVjNM&feature=youtu.be)
+- mention bénéfices pour Spring [32:17](https://www.youtube.com/watch?v=_o7NIaOVjNM&t=1937s)
