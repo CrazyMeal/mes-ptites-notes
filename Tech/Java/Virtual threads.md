@@ -1,4 +1,4 @@
-#java #virtual-threads 
+#java #virtual-threads #loom #spring #learning 
 
 Les virtual threads sont officialisés dans la version 21 de Java ([[Java 21]]). Beaucoup l'apparentent aux coroutines de Kotlin quand on discute de ce sujet.
 Dans ces notes, nous allons voir ce qu'il en est, le avant / après, les impacts potentiels sur les librairies / frameworks etc...
@@ -25,6 +25,9 @@ Quand un *virtual thread* est crée, la JVM planifie son exécution sur un *plat
 
 > [!info]
 > On dit alors que le *platform thread* devient le *porteur* du *virtual thread* (à voir la traduction, sinon dire *carrier*)
+
+Voici une illustration représentant ce principe:
+![[virtual-threads.7c86909.751646c868b549281eb31912191cc4b8.png]]
 
 Lorsque le *virtual thread* fait un action bloquante, le *platform thread* est libéré, et le bout de mémoire qui avait été copié depuis la heap, retourne dans la heap.
 Quand le *virtual thread* termine son action bloquante, le scheduler re-planifie l'execution de celui-ci par un *platform thread*.
@@ -67,15 +70,55 @@ static void someOtherMethod() {
 }
 ```
 
-# "Limitation" / Ce n'est pas la solution a tout
+> [!tip]
+> Pour utiliser les Virtual Threads dans une application Spring Boot, il suffit de customiser un de beans de configuration de Tomcat:
+> ```java
+>  @Bean
+>    public TomcatProtocolHandlerCustomizer\<?> protocolHandlerVirtualThreadExecutorCustomizer() {
+>       return protocolHandler -> {
+>           protocolHandler.setExecutor(Executors.newVirtualThreadPerTaskExecutor());
+>       };
+>   }
+>   
+>   @Bean
+>    public AsyncTaskExecutor asyncTaskExecutor() {
+>        return new TaskExecutorAdapter(Executors.newVirtualThreadPerTaskExecutor());
+>    }
+> ```
 
-TODO: parallèle avec *reactive programming*
-TODO: tests de performance avec K6 (se baser ou reprendre [spring-boot-virtual-threads-test](https://github.com/GaetanoPiazzolla/spring-boot-virtual-threads-test) ?)
+
+# Not a silver bullet 🔫
+
+## Performances
+On pourrait penser qu'en utilisant les Virtual Threads, les performances d'application pourraient être améliorées.
+Quand on regarde les différents benchmarks disponibles sur le net comme dans [l'article de blog Spring "Web applications and project Loom"](https://spring.io/blog/2023/02/27/web-applications-and-project-loom) ou encore [l'article "Virtual thread: performance gain for microservices"](https://medium.com/naukri-engineering/virtual-thread-performance-gain-for-microservices-760a08f0b8f3) , on remarque qu'effectivement, dans certains cas et situations, un gain de performance est présent. Il y a également cet article ["Guide of Virtual Threads"](https://blog.adamgamboa.dev/guide-of-virtual-threads-lightweight-threads-in-java/) qui se base sur différents scenario / articles.
+Enfin, une [étude complète et précise](http://kth.diva-portal.org/smash/get/diva2:1763111/FULLTEXT01.pdf) est également disponible, réalisée par [Carl Haneklint](https://www.linkedin.com/in/carl-haneklint-66813a172/) et [Yo Han Joo](https://www.linkedin.com/in/yo-han-joo-aa21478a/) qui prend notamment en compte certains des articles cités précédemment.
+
+Il faut toutefois aussi constater que le gain en performances est relatif selon les articles / études. Même dans l'étude précise citée précédemment, des réserves sont émises vis à vis des résultats, notamment sur la comparaison entre *virtual threads* et programmation reactive.
+Il sera donc surement plus pertinent, de tester / vérifier si dans **votre contexte**, une utilisation des *virtual threads* apporte un gain significatif pour vos besoins.
+
+## Coding style
+Il y a néanmoins un avantage *potentiel* du point de vu *coding style*. Jusqu'à maintenant, la réponse à la gestion de tâches bloquantes (par exemple) a été de se tourner vers la programmation réactive.
+Néanmoins, cette manière de programmer des appels asynchrones a une courbe d'apprentissage pouvant être perçue comme élevée.
+
+Utiliser des *virtual threads* peut alors être vu comme une alternative qui permet de rester plus proche du *coding style* plus habituel / courant.
 
 # Ressources 💎
+
 [JEP 444](https://openjdk.org/jeps/444)
-[Article de Daniel Ciorcîlan - # The Ultimate Guide to Java Virtual Threads](https://blog.rockthejvm.com/ultimate-guide-to-java-virtual-threads/)
+
+[Article de Daniel Ciorcîlan - The Ultimate Guide to Java Virtual Threads](https://blog.rockthejvm.com/ultimate-guide-to-java-virtual-threads/)
+
 [Article de blog Spring - Embracing Virtual Threads (oct 2022)](https://spring.io/blog/2022/10/11/embracing-virtual-threads)
+
 [Article medium - Virtual thread: performance gain for microservices (dec 2022)](https://medium.com/naukri-engineering/virtual-thread-performance-gain-for-microservices-760a08f0b8f3)
+
 [Article de Dan Vega - Spring into the future: Embracing virtual threads with Java's project Loom (avr 2023)](https://www.danvega.dev/blog/2023/04/12/virtual-threads-spring/)
+
 [Article de blog Spring - Web applications and project Loom (feb 2023)](https://spring.io/blog/2023/02/27/web-applications-and-project-loom)
+
+[Article de blog - Guide of Virtual Threads (juin 2023)](https://blog.adamgamboa.dev/guide-of-virtual-threads-lightweight-threads-in-java/)
+
+[Comparing Virtual Threads and Reactive Webflux in Spring](http://kth.diva-portal.org/smash/get/diva2:1763111/FULLTEXT01.pdf)  // accessible par [portail université](https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A1763111&dswid=3920) // récupéré en backup [[Comparing Virtual Threads and Reactive Webflux in Spring.pdf]] 
+
+
