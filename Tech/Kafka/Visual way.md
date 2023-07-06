@@ -74,8 +74,18 @@ Difficile à illustrer autrement qu'avec un diagramme de séquence...
 Ce qu'il faut retenir c'est que grâce à la réplication de Kafka, un nouveau leader de partition peut être élu lorsque le leader actuel est en indisponible pour quelconque raison.
 
 
-## Consume
-Offset
+## Consumer
+### Offset
+Lorsqu'un consommateur vient consommer des messages, il utilise la notion d'offset pour savoir à partir d'où dans la liste des messages de la partition il doit lire.
 
-Consumer group
-Rebalance
+![[Pasted image 20230706143953.png]]
+
+Le *commited offset* est l'offset marqué comme *traité*. Si le consommateur s'arrêtte pour quelconque raison, c'est à partir de cet offset qu'il reprendra la lecture, même s'il était rendu plus loin.
+
+Le *current offset* est simplement l'offset du message qui est en train d'être présentement traité par le consommateur. C'est sur lui qu'on se base pour déterminer le *consumer lag* qui est un indicateur de performance des consumers.
+
+Ces offsets ne sont en fait pas attachés un consumer, il est en fait attaché à un *consumer group*.
+
+### Consumer group
+
+![[Pasted image 20230706145618.png]]
