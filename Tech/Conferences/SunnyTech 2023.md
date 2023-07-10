@@ -25,7 +25,7 @@
 
 ## [Apache Kafka : Tips & Tricks que j'aurais aimé connaître plus tôt..](https://www.youtube.com/watch?v=ojlnNl-pzb8)
 
-- Ne pas autoriser la création automatique de topic (à contrebalancer avec la potentielle utilisation de proxy dispo' dans [[Tech/Conferences/Devoxx 2023/WatchList|WatchList]])
+- Ne pas autoriser la création automatique de topic (à contrebalancer avec la potentielle utilisation de proxy dispo' dans [[Devoxx 2023|Devoxx 2023]])
 - Attention sur le hash de clé, ce n'est pas forcément le même algorithme de hash d'un langage à un autre. Pour faire safe: forcer le même algorithme pour tout le monde.
 - Ne pas se baser fortement sur la compaction de topic, par exemple ne pas l'utiliser comme logique déterministe pour supprimer de vieux doublons.
 - Sur le nombre de partition, vis à vis de la notion de *divisibilité* les chiffres qui reviennent souvent: `6 / 12 / 24 / 48 / 60 / 120 / 180 / 240 / 360` 
