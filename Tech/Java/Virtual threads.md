@@ -135,3 +135,7 @@ Utiliser des *virtual threads* peut alors être vu comme une alternative qui per
 - mention bénéfices pour Spring [32:17](https://www.youtube.com/watch?v=_o7NIaOVjNM&t=1937s)
 > The only way to find out, is to take your Spring application, and try with virtual threads
 
+[Workshop de José Paumard](https://github.com/JosePaumard/JDK20_2023-Loom-Lab)
+
+
+
