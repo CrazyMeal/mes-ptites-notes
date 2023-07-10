@@ -24,7 +24,7 @@ De base, la JVM maintient un pool de *platform thread*.
 Quand un *virtual thread* est crée, la JVM planifie son exécution sur un *platform thread*, copie le stack du *virtual thread* depuis la mémoire (heap) vers le *platform thread*.
 
 > [!info]
-> On dit alors que le *platform thread* devient le *porteur* du *virtual thread* (à voir la traduction, sinon dire *carrier*)
+> Lorsque l'exécution se lance, on dit alors que le *platform thread* devient le *porteur* du *virtual thread* (à voir la traduction, sinon dire *carrier*)
 
 Voici une illustration représentant ce principe:
 ![[virtual-threads.7c86909.751646c868b549281eb31912191cc4b8.png]]
@@ -82,7 +82,7 @@ static void someOtherMethod() {
 >   }
 >   
 >   @Bean
->    public AsyncTaskExecutor asyncTaskExecutor() {
+>    public AsyncTaskExecutor applicationTaskExecutor() {
 >        return new TaskExecutorAdapter(Executors.newVirtualThreadPerTaskExecutor());
 >    }
 > ```

@@ -80,7 +80,7 @@ Lorsqu'un consommateur vient consommer des messages, il utilise la notion d'offs
 
 ![[Pasted image 20230706143953.png]]
 
-Le *commited offset* est l'offset marqué comme *traité*. Si le consommateur s'arrêtte pour quelconque raison, c'est à partir de cet offset qu'il reprendra la lecture, même s'il était rendu plus loin.
+Le *commited offset* est l'offset marqué comme *traité*. Si le consommateur s'arrête pour quelconque raison, c'est à partir de cet offset qu'il reprendra la lecture, même s'il était rendu plus loin.
 
 Le *current offset* est simplement l'offset du message qui est en train d'être présentement traité par le consommateur. C'est sur lui qu'on se base pour déterminer le *consumer lag* qui est un indicateur de performance des consumers.
 
