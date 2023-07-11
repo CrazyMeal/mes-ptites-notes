@@ -11,7 +11,7 @@
 | ----- | ---- | -------- | ---- | :-------: |
 | Apache Kafka : Tips & Tricks que j'aurais aimé connaître plus tôt.. | #kafka | Haute | [Lien](https://www.youtube.com/watch?v=ojlnNl-pzb8) | ✅ |
 | Programmation Concurrente et Asynchrone : Loom en Java 20 et 21 | #loom #virtual-threads #java  | Haute | [Lien](https://www.youtube.com/watch?v=OPV8GIdnQto) | ✅ |
-| Secret Story pour faire sa veille et apprendre efficacement | #veille | Moyenne | [Lien](https://www.youtube.com/watch?v=4OJgkQZwMmg) | ❌ |
+| Secret Story pour faire sa veille et apprendre efficacement | #veille | Moyenne | [Lien](https://www.youtube.com/watch?v=4OJgkQZwMmg) | ✅ |
 | The next generation of Angular Application | #angular #frontend | Moyenne | [Lien](https://www.youtube.com/watch?v=50Gjdi72xd4) | ❌ |
 | Example Mapping: expliquer facilement les attentes du métier à vos équipes | #soft-skills | Moyenne | [Lien](https://www.youtube.com/watch?v=57g1ocHZqt0) | ❌ |
 | Comment économiser 80% de temps de CI avec PNPM | #frontend #ci | Moyenne | [Lien](https://www.youtube.com/watch?v=zKMt2i5L8ME) | ❌ |
@@ -34,3 +34,20 @@
 - Avoir le réflexe d'utiliser les JMX pour débugger une situation.
 - La compression a lieu sur les batch: pas de batch == pas de compression
 - Pour les tests de performances, mieux vaut se baser sur le traffic de production, et le comportement de la production. Par exemple, en production on ne produit pas les messages dans une logique *round-robbin*.
+
+## [Secret Story pour faire sa veille et apprendre efficacement](https://www.youtube.com/watch?v=4OJgkQZwMmg)
+
+- Technique du time-blocking
+	- Se connaitre soi-même, savoir dans quels moments de la journée on est le plus productif
+- Flow
+	- Éliminer les distraction
+	- Avoir une petite routine pour rentrer dans cet état plus rapidement
+- Pomodoro: meh 😑
+- Quand on veut creuser un sujet, appliquer la loi de Pareto: 
+	- pas besoin d'aller dans les concepts les plus avancés
+	- aller à la source de l'information directement (beaucoup d'informations sont issues de quelques sources)
+- 3 méthodes du *second cerveau*
+	- Zettelkasten
+	  ![[Zettelkasten-scaled.jpg|550]]
+	- Para method
+	- Méthode Cornell (souvent utilisé avec le logiciel *Good notes*)
