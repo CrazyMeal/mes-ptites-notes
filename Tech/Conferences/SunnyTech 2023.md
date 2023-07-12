@@ -51,3 +51,4 @@
 	  ![[Zettelkasten-scaled.jpg|550]]
 	- Para method
 	- Méthode Cornell (souvent utilisé avec le logiciel *Good notes*)
+	  ![[cornell.png]]
