@@ -1,4 +1,10 @@
-#youtube #project #WIP 
+---
+tags:
+  - youtube
+  - project
+  - WIP
+---
+
 
 # 💡Idée de base 
 Vidéo sur le projet de A à Z, de la réflexion à la mise en store.

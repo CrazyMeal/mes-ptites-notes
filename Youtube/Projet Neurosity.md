@@ -1,4 +1,9 @@
-#youtube #project #WIP 
+---
+tags:
+  - youtube
+  - project
+  - WIP
+---
 
 # 💡Idée de base
 Vidéo projet exploratoire ? Partir du produit (ici hardware), en faire un side-project, aboutir sur un produit (software) vendable
